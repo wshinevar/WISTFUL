@@ -58,7 +58,6 @@ This MATLAB app finds the best fitting compositions or parameters given pressure
 This MATLAB app allows the production of seismic wavespeed or density profiles and ranges for various geotherms and rock types. 
 # Functions
 ## numWithinError.m
-This script calculates the best-fit temperature for a given seismic constraint using the number of samples within error. 
-## numWithinError.m
-
-Under construction.
+This script calculates the best-fit temperature for a given seismic constraint using the number of samples within error. Benefit of this script over the GUI is that you can input a list of seismic wavespeeds for constraints.
+## fitPropertyNumWithin.m
+Sister script to numWithinError.m that uses the outputs to calculate average input properties at investigated pressures and temperatures. Uses outputs from numWithinError.m.
