@@ -4,7 +4,7 @@ function [J1,J2,fM] = creep10(Te,gs,pres,omega)
 
 global alpha sig% alpha is used in J1anel and J2anel, sig in J1p and J2p
 Tr = 1173; iTr=1/Tr; %reference temperature in K
-Pr = 0.2; PT = Pr/Tr; %reference pressure in GPa
+Pr = 0.2*1E9; PT = Pr/Tr; %reference pressure in Pa
 gsr = 1.34E-5; % reference grain size in m
 deltaB = 1.04; % background relaxation strength,
 alpha = 0.274; % background frequency exponent
@@ -13,7 +13,7 @@ tauLo = 1E-3; tauHo = 1E7; tauMo = 3.02E7;
 ma = 1.31;  % anelastic grain size exponent
 mv = 3;     % viscous grain size exponent
 EB = 3.6E5; % activation energy for background and peak (orig 3.6E5)
-AV = 1.2E-5;  % activation volume 1E-5
+AV = 1E-5;  % activation volume 1E-5
 R = 8.314; 
 AVR = AV/R; ER = EB/R; gr = gs/gsr;
 
