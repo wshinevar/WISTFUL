@@ -57,5 +57,8 @@ This MATLAB app finds the best fitting compositions or parameters given pressure
 ## WISTFUL_profiles
 This MATLAB app allows the production of seismic wavespeed or density profiles and ranges for various geotherms and rock types. 
 # Functions
-## fitSeismicWaveSpeeds.m
+## numWithinError.m
+This script calculates the best-fit temperature for a given seismic constraint using the number of samples within error. 
+## numWithinError.m
+
 Under construction.
