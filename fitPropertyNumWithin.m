@@ -30,24 +30,25 @@ Twant=Tfind+273.1;
 pIndex=find(abs(Pfind-p)==min(abs(Pfind-p)), 1 );
 tIndex=find(abs(Twant-t)==min(abs(Twant-t)), 1 );
 tIndex2=find(abs(Tfind-Tplot)==min(abs(Tfind-Tplot)), 1 );
-
+if isempty(foundIndices{tIndex2})
+    meanProperty=NaN;
+    stdProperty=NaN;
+    return
+end
 if length(size(property))>2
     propertyUse=squeeze(property(pIndex,tIndex,:));
 else
     propertyUse=property;
 end
 weights=1./errorAll(tIndex2,:,:);
-meanProperty=NaN(size(foundIndices,2),1);
-stdProperty=NaN(size(foundIndices,2),1);
-
 if size(weights,1)==1
        j=1;
-       meanProperty=sum(propertyUse(foundIndices{tIndex2}).*squeeze(weights(foundIndices{tIndex2})))./sum(squeeze(weights(foundIndices{tIndex2,j})));
+       meanProperty=sum(propertyUse(foundIndices{tIndex2})'.*squeeze(weights(foundIndices{tIndex2})))./sum(squeeze(weights(foundIndices{tIndex2,j})));
         stdProperty=std(propertyUse(foundIndices{tIndex2}),squeeze(weights(foundIndices{tIndex2})));
 else
     for j=1:size(foundIndices,2)
         %I=find(abs(averageTemp-tPlot)==min(abs(averageTemp-tPlot)), 1 );
-        meanProperty(j)=sum(propertyUse(foundIndices{tIndex2,j}).*squeeze(weights(foundIndices{tIndex2,j},j)))./sum(squeeze(weights(foundIndices{tIndex2,j},j)));
+        meanProperty(j)=sum(propertyUse(foundIndices{tIndex2,j})'.*squeeze(weights(foundIndices{tIndex2,j},j)))./sum(squeeze(weights(foundIndices{tIndex2,j},j)));
         stdProperty(j)=std(propertyUse(foundIndices{tIndex2,j}),squeeze(weights(foundIndices{tIndex2,j},j)));
     end
 end

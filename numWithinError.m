@@ -1,7 +1,7 @@
 function [Tplot, numWithin, bestFitT, Terror, foundIndices, errorAll] = numWithinError(Pwant, Trange, t, p, data1Find, data1Error, data1,varargin)
 % NUMWITHINERROR finds the number of WISTFUL samples within a certain error of seismic data type.   
 %
-%   [TPLOT, NUMWITHIN, BESTFITT, TERROR, FOUNDINDICES)= numWithinError(P, Trange, t, p,
+%   [TPLOT, NUMWITHIN, BESTFITT, TERROR, FOUNDINDICES]= numWithinError(P, Trange, t, p,
 %   data1Find, data1Error, data1) finds the number of data points from the
 %   input WISTFUL database for a given data at a given pressure P [bars]
 %   over a range Trange [Tmin Tmax] in degrees C. To use this file in a
@@ -17,12 +17,12 @@ function [Tplot, numWithin, bestFitT, Terror, foundIndices, errorAll] = numWithi
 %   data1 is the WISTFUL data of that parameter loaded from the .mat file
 %   (e.g. Vp, Vs, Vp/Vs).
 %
-%   [TPLOT, NUMWITHIN, BESTFITT, TERROR, FOUNDINDICES)= numWithinError(P, Trange, t, p,
+%   [TPLOT, NUMWITHIN, BESTFITT, TERROR, FOUNDINDICES]= numWithinError(P, Trange, t, p,
 %   data1Find, data1Error, data1,constraints) only looks at the samples
 %   with true values in the constraints variable. data1Find can be a
 %   vector.
 %
-%   [TPLOT, NUMWITHIN, BESTFITT, TERROR, FOUNDINDICES)= numWithinError(P, Trange, t, p,
+%   [TPLOT, NUMWITHIN, BESTFITT, TERROR, FOUNDINDICES]= numWithinError(P, Trange, t, p,
 %   data1Find, data1Error, data1, constraints, data2Find, data2Error,data2)
 %   adds the additional constraint (e.g. Vp and Vs) with it's own
 %   individual error. If empty constraints is empty, all samples will be used. 
@@ -40,11 +40,6 @@ function [Tplot, numWithin, bestFitT, Terror, foundIndices, errorAll] = numWithi
 %
 %   foundIndices is a cell for the WISTFUL sample indices at each
 %   investigated temperature. 
-%
-%   meanProperty is the weighted average of the investigated property (e.g. density, composition) if input.
-%
-%   stdProperty is the weighted standard deviation of the investigated
-%   property (e.g. density, composition) if input. 
 %   
 %   last updated by William Shinevar 04/2021
 
@@ -71,7 +66,6 @@ end
 if exist('constraints')~=1
     constraints=true(length(data1),1);
 end
-
 %% First we find the pIndex and tindex we need
 
 TwantMin=273.1+Trange(1);
