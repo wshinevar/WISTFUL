@@ -46,29 +46,27 @@ else
     propertyUse=property;
 end
 
-averageProperty=zeros(length(tIndex),size(foundIndices,3));
-stdProperty=zeros(length(tIndex),size(foundIndices,3));
-for j=1:size(errorAllSorted,3)
-    for i=1:length(tIndex)
-        indices=squeeze(foundIndices(i,1:closestX,j));
-        Xi=errorsAllSorted(i,indices,j);
-        weight= (1./Xi)*sum(1./Xi);
-        if tempsensitive
-            data1sorted=squeeze(propertyUse(i,indices(1:closestX)));
-        else
-            data1sorted=propertyUse(indices(1:closestX));
-        end
-        if size(data1sorted,1)>=size(data1sorted,2)
-            data1sorted=data1sorted';
-        end
-        averageProperty(i,j)=sum(data1sorted./Xi)./sum(1./Xi);
-        stdProperty(i,j)=std(data1sorted,weight);
+averageProperty=zeros(length(tIndex),1);
+stdProperty=zeros(length(tIndex),1);
+averageLowestError=zeros(length(tIndex),1);
+for i=1:length(tIndex)
+    indices=squeeze(foundIndices(i,1:closestX));
+    Xi=errorsAllSorted(i,indices);
+    averageLowestError(i)=mean(Xi);
+    weight= (1./Xi)*sum(1./Xi);
+    if tempsensitive
+        data1sorted=squeeze(propertyUse(i,indices(1:closestX)));
+    else
+        data1sorted=propertyUse(indices(1:closestX));
     end
+    if size(data1sorted,1)>=size(data1sorted,2)
+        data1sorted=data1sorted';
+    end
+    averageProperty(i)=sum(data1sorted./Xi)./sum(1./Xi);
+    stdProperty(i)=std(data1sorted,weight);
 end
 
-%% calculate weighted average and error. 
-for i=1:size(errorAllSorted,3)
-    rangeIndex=abs(Tplot-Tfind)<=Terror;
-    meanProperty=averageProperty(tIndex2);
-    stdProperty=sum(stdProperty(rangeIndex)./averageLowestError(rangeIndex))./sum(1./averageLowestError(rangeIndex));
-end
+%% calculate weighted average and error.
+rangeIndex=abs(Tplot-Tfind)<=Terror;
+meanProperty=averageProperty(tIndex2);
+stdProperty=sum(stdProperty(rangeIndex)./averageLowestError(rangeIndex))./sum(1./averageLowestError(rangeIndex));
