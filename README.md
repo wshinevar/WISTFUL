@@ -55,7 +55,7 @@ This MATLAB app allows plotting of parameters in the WISTFUL database over a ran
 ## WISTFUL_inversion
 This MATLAB app finds the best fitting compositions or parameters given pressure and seismic wave speed (one or more of Vp, Vs, and Vp/Vs). One can either fit by examining the X closest samples or by looking at the averages or distributions of data within error. To fit many seismic wave speed points, use the function fitSeismicWaveSpeeds.m.
 ## WISTFUL_profiles
-This MATLAB app allows the production of seismic wavespeed or density profiles and ranges for various geotherms and rock types. 
+This MATLAB app allows the production of seismic wavespeed or density profiles and ranges for various geotherms and rock types. To use a loaded geotherm, you must load a .mat file with vector files for depth [km], pressure[bars], and temperature [degree C] named as z, p, and t (NOTE: These variable names are case-sensitive). The depths should be increasing in value to plot well. 
 # Functions
 ## numWithinError.m
 This script calculates the best-fit temperature for a given seismic constraint using the number of samples within error. Benefit of this script over the GUI is that you can input a list of seismic wavespeeds for constraints.
