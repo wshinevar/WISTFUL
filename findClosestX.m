@@ -94,8 +94,8 @@ if exist('data2')==1 %if we have two fittings
     error2=zeros(size(data1Use,1),size(data1Use,2),length(data1Find));
 end
 %% find all the misfits and number of samples within error box
-numWithin=zeros(length(tIndex),length(data1Find));
-foundIndices=cell(length(tIndex),length(data1Find));
+% numWithin=zeros(length(tIndex),length(data1Find));
+% foundIndices=cell(length(tIndex),length(data1Find));
 for i= 1:length(tIndex)
     for j=1:length(data1Find)
         error1(i,:,j)=abs(squeeze(data1Find(j)-data1Use(i,:))*100/data1Find(j));
@@ -113,6 +113,7 @@ end
 errorAllSorted=zeros(size(errorAll));
 %% now we go through, sort the error, and report indices and average closest error. 
 [errorAllSorted, foundIndices]=sort(errorAll,2);
+foundIndices=foundIndices(:,1:X);
 averageError=squeeze(mean(errorAllSorted(:,1:X,:),2));
 stdError=squeeze(std(errorAllSorted(:,1:X,:),0,2));
 %% find best fit temperature
@@ -121,5 +122,5 @@ bestFitT=Tplot(bestFitIndex1);
 dT=Tplot(2)-Tplot(1);
 Terror=zeros(size(bestFitT));
 for i=1:length(Terror)
-    Terror(i)=sum((averageError(:,i)-min(averageError(:,i))<stdError(bestFitIndex1(i),i)))/2*dT;
+    Terror(i)=sum((averageError(:,i)-min(averageError(:,i))<stdError(bestFitIndex1(i),i)))*dT;
 end

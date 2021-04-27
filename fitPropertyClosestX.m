@@ -1,18 +1,16 @@
-function [meanProperty, stdProperty] = fitPropertyClosestX(Pfind, Tfind,Terror,t,p,Tplot,property,foundIndices, errorAllSorted)
+function [meanProperty, stdProperty, averagePropertyRange, stdPropertyRange] = fitPropertyClosestX(Pfind, Tfind,Terror,t,p,Trange,property,foundIndices, errorAllSorted)
 % fitPropertyNumWithin finds the average and weighted standard deviation of
 % a given property from the variables found in findClosestX
 %
 % Pfind is the pressure [bars] you input to findClosestX.
 %
-% Tfind is the temperature [degrees C] you want the average property at.
+% Tfind is the temperature [degrees C] you want the average property at.Ter
 % For best fit, use bestFitT from findClosestX. 
 %
 % Terror is the range of temperature. For best fit error, use Terror from
 % the sister function findClosestX.
 %
 % t and p are the WISTFUL temperature and pressure vectors from loading any WISTFUL speed file.
-%
-%  X is the number of closest samples averaged. 
 %
 % Tplot is the output from numWithinError run.
 %
@@ -32,41 +30,40 @@ function [meanProperty, stdProperty] = fitPropertyClosestX(Pfind, Tfind,Terror,t
 %
 % coded by William Shinevar, last updated 04/21
 %% error check and fixing property
-if nargin ~=8
+if nargin ~=9
     error('Wrong number of input variables.')
 end
-Twant=Tfind+273.1;
+TwantMin=273.1+Trange(1);
+TwantMax=273.1+Trange(2);
 pIndex=find(abs(Pfind-p)==min(abs(Pfind-p)), 1 );
-tIndex=find(abs(Twant-t)==min(abs(Twant-t)), 1 );
-tIndex2=find(abs(Tfind-Tplot)==min(abs(Tfind-Tplot)), 1 );
+tIndexMin=find(abs(TwantMin-t)==min(abs(TwantMin-t)), 1 );
+tIndexMax=find(abs(TwantMax-t)==min(abs(TwantMax-t)), 1 );
+tIndex=tIndexMin:tIndexMax;
+tIndex2=find(abs(Tfind-t+273.1)==min(abs(Tfind-t+273.1)), 1 );
 
 if length(size(property))>2
     propertyUse=squeeze(property(pIndex,tIndex,:));
 else
     propertyUse=property;
 end
-
-averageProperty=zeros(length(tIndex),1);
-stdProperty=zeros(length(tIndex),1);
+X=size(foundIndices,2);
+averagePropertyRange=zeros(length(tIndex),1);
+stdPropertyRange=zeros(length(tIndex),1);
 averageLowestError=zeros(length(tIndex),1);
 for i=1:length(tIndex)
-    indices=squeeze(foundIndices(i,1:closestX));
-    Xi=errorsAllSorted(i,indices);
+    indices=squeeze(foundIndices(i,:));
+    Xi=errorAllSorted(i,1:X);
     averageLowestError(i)=mean(Xi);
     weight= (1./Xi)*sum(1./Xi);
-    if tempsensitive
-        data1sorted=squeeze(propertyUse(i,indices(1:closestX)));
-    else
-        data1sorted=propertyUse(indices(1:closestX));
-    end
-    if size(data1sorted,1)>=size(data1sorted,2)
-        data1sorted=data1sorted';
-    end
-    averageProperty(i)=sum(data1sorted./Xi)./sum(1./Xi);
-    stdProperty(i)=std(data1sorted,weight);
+    data1sorted=propertyUse(indices);
+%     if size(data1sorted,1)>=size(data1sorted,2)
+%         data1sorted=data1sorted';
+%     end
+    averagePropertyRange(i)=sum(data1sorted./Xi)./sum(1./Xi);
+    stdPropertyRange(i)=std(data1sorted,weight);
 end
 
 %% calculate weighted average and error.
-rangeIndex=abs(Tplot-Tfind)<=Terror;
-meanProperty=averageProperty(tIndex2);
-stdProperty=sum(stdProperty(rangeIndex)./averageLowestError(rangeIndex))./sum(1./averageLowestError(rangeIndex));
+rangeIndex=abs(t(tIndex)-273.1-Tfind)<=ceil(Terror);
+meanProperty=averagePropertyRange(tIndex2);
+stdProperty=sum(stdPropertyRange(rangeIndex)./averageLowestError(rangeIndex))./sum(1./averageLowestError(rangeIndex));
