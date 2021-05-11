@@ -122,5 +122,5 @@ bestFitT=Tplot(bestFitIndex1);
 dT=Tplot(2)-Tplot(1);
 Terror=zeros(size(bestFitT));
 for i=1:length(Terror)
-    Terror(i)=sum((averageError(:,i)-min(averageError(:,i))<stdError(bestFitIndex1(i),i)))*dT;
+    Terror(i)=sum((averageError(:,i)-min(averageError(:,i))<stdError(bestFitIndex1(i),i)))*dT/2;
 end

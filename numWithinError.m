@@ -113,7 +113,7 @@ for j=1:length(data1Find)
     sumFits=sum(numWithin(:,j));%n
     sumM2=sum(numWithin(:,j).*Tplot.^2);
     bestFitT(j)=sum(Tplot.*numWithin(:,j))./sumFits;
-    Terror(j)=2*sqrt((sumM2-sumFits*bestFitT(j)^2)/(sumFits-1));
+    Terror(j)=sqrt((sumM2-sumFits*bestFitT(j)^2)/(sumFits-1));
 end
 if exist('data2')==1
     errorAll=sqrt(error1.^2+error2.^2);
