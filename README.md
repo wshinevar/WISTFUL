@@ -65,3 +65,5 @@ Sister script to numWithinError.m that uses the outputs to calculate average inp
 This script calculates the best-fit temperature for a given seismic constraint using the average misfit of the X closest samples. Benefit of this script over the GUI is that you can input a list of seismic wavespeeds for constraints.
 ## fitPropertyClosestX.m
 Sister script to findClosestX.m that uses the outputs to calculate average input properties at investigated pressures and temperatures. Uses outputs from findClosestX.m.
+## exampleClosestX.m and exampleNumWithin.m
+These scripts show example uses of the above functions. 
