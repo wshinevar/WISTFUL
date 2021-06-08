@@ -16,7 +16,7 @@ This file contains the parsed modal assemblage (olivine, orthopyroxene, clinopyr
 ## WISTFUL_speeds_moduli_clean.mat
 This file contains the parsed anharmonic shear and bulk modulus (in Pa) as well as the Vp and Vs (in km/s) for each rock in the database over the pressure and temperature range. Pressure is in units of bars and temperature is in K. 
 ## WISTFUL_compositions_clean.mat
-This file contains the oxide composition for each rock in the database in wt. % along with calculated XMg. 
+This file contains the oxide composition for each rock in the database in wt. % along with calculated XMg and location data when available. 
 ## WISTFUL_rockType.mat
 This file contains the analyzed rocktype of all samples at 800C and 2 GPa. isPeridotite is a logical stating whether the rock is a peridotite. isPyroxenite is a logical saying whether the rock is a pyroxenite. 
 rocktype the rocktype number for each sample as follows:
