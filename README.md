@@ -14,7 +14,7 @@ This file contains the densities in kg/m^3 for all samples over the investigated
 ## WISTFUL_parsed_modes_clean.mat
 This file contains the parsed modal assemblage (olivine, orthopyroxene, clinopyroxene, garnet, spinel) in vol. % for all samples over the investigated range of pressure and temperature. 
 ## WISTFUL_speeds_moduli_clean.mat
-This file contains the parsed anharmonic shear and bulk modulus (in Pa) as well as the Vp and Vs (in km/s) for each rock in the database over the pressure and temperature range. Pressure is in units of bars and temperature is in K. 
+This file contains the parsed anharmonic shear and bulk modulus [Pa] as well as the Vp and Vs [km/s] for each rock in the database over the pressure and temperature range. Pressure is in units of bars and temperature is in K. 
 ## WISTFUL_compositions_clean.mat
 This file contains the oxide composition for each rock in the database in wt. % along with calculated XMg and location data when available. 
 ## WISTFUL_rockType.mat
