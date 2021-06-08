@@ -46,7 +46,7 @@ The data repository also creates a live script to apply various anelastic correc
 The matlab functions implementing the Jackson & Faul model (creep10.m, J1anel.m, J1p.m, J2anel.m, and J2p.m) are taken from the supplement of Garber et al. (2018) (https://doi.org/10.1029/2018GC007534).
 
 To utilize this script, open the function in MATLAB in the same folder as the other matlab functions as well as the two data files: WISTFUL_speeds_moduli_clean.mat and WISTFUL_densities_clean.mat.
-Once opened, you can choose the anelastic correction, the period, grain size, and COH (~100 ppm wt (H2O) = ~1500 ppm H/Si) (only changes the Behn et al. (2009) model). You can also choose the resulting saved file name for the use in the WISTFUL GUI's. If no file name is chosen, a default file name listing all the parameters is used.
+Once opened, you can choose the anelastic correction, the period, grain size, and olivine COH (~100 ppm wt (H2O) = ~1500 ppm H/Si) (only changes the Behn et al. (2009) model). You can also choose the resulting saved file name for the use in the WISTFUL GUI's. If no file name is chosen, a default file name listing all the parameters is used.
 Hit the run button, and the chosen anelasticity will be applied on the WISTFUL anharmonic wave speeds!
 # GUIs
 By default, all GUI's load anharmonic wavespeeds. To change this, hit the load button in the top left of all GUIS to load the file saved from the livescript calculateWaveSpeedFiles.mlx. If one wishes to save the data found in the GUI figures, use the export data button to export the data to the workspace, where you can save to a .mat file using the save command.
