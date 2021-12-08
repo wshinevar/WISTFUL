@@ -2,7 +2,7 @@ function [meanProperty, stdProperty] = fitPropertyNumWithin(Pfind, Tfind,t,p,Tpl
 % fitPropertyNumWithin finds the average and weighted standard deviation of
 % a given property from the variables found in numWithinError
 % 
-% Pfind is the pressure [bars] you input to numWithinError.
+% Pfind is the pressure [Pa] you input to numWithinError.
 %
 % Tfind is the temperature [degrees C] you want the average property over. For best-fit
 % average property, use the bestFitT output from numWithinerror.

@@ -3,7 +3,7 @@ function [Tplot, numWithin, bestFitT, Terror, foundIndices, errorAll] = numWithi
 %
 %   [TPLOT, NUMWITHIN, BESTFITT, TERROR, FOUNDINDICES]= numWithinError(P, Trange, t, p,
 %   data1Find, data1Error, data1) finds the number of data points from the
-%   input WISTFUL database for a given data at a given pressure P [bars]
+%   input WISTFUL database for a given data at a given pressure P [Pa]
 %   over a range Trange [Tmin Tmax] in degrees C. To use this file in a
 %   script, please load your preferred wave speed file as well as any
 %   property file you wish to match with. 

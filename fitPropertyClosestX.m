@@ -2,7 +2,7 @@ function [meanProperty, stdProperty, averagePropertyRange, stdPropertyRange] = f
 % fitPropertyNumWithin finds the average and weighted standard deviation of
 % a given property from the variables found in findClosestX
 %
-% Pfind is the pressure [bars] you input to findClosestX.
+% Pfind is the pressure [Pa] you input to findClosestX.
 %
 % Tfind is the temperature [degrees C] you want the average property at.Ter
 % For best fit, use bestFitT from findClosestX. 
@@ -39,7 +39,7 @@ pIndex=find(abs(Pfind-p)==min(abs(Pfind-p)), 1 );
 tIndexMin=find(abs(TwantMin-t)==min(abs(TwantMin-t)), 1 );
 tIndexMax=find(abs(TwantMax-t)==min(abs(TwantMax-t)), 1 );
 tIndex=tIndexMin:tIndexMax;
-tIndex2=find(abs(Tfind-t+273.1)==min(abs(Tfind-t+273.1)), 1 );
+tIndex2=find(abs(Tfind-t(tIndex)+273.1)==min(abs(Tfind-t(tIndex)+273.1)), 1 );
 
 if length(size(property))>2
     propertyUse=squeeze(property(pIndex,tIndex,:));
