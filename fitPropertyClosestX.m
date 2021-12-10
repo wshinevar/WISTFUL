@@ -42,9 +42,14 @@ tIndex=tIndexMin:tIndexMax;
 tIndex2=find(abs(Tfind-t(tIndex)+273.1)==min(abs(Tfind-t(tIndex)+273.1)), 1 );
 
 if length(size(property))>2
-    propertyUse=squeeze(property(pIndex,tIndex,:));
-else
+    propertyUse=squeeze(property(pIndex,tIndex,:))';
+    tempsensitive=true;
+elseif sum(size(property))>(length(property)+1)
     propertyUse=property;
+    tempsensitive=true;
+else 
+    propertyUse=property;
+    tempsensitive=false;
 end
 X=size(foundIndices,2);
 averagePropertyRange=zeros(length(tIndex),1);
@@ -55,7 +60,11 @@ for i=1:length(tIndex)
     Xi=errorAllSorted(i,1:X);
     averageLowestError(i)=mean(Xi);
     weight= (1./Xi)*sum(1./Xi);
-    data1sorted=propertyUse(indices);
+    if tempsensitive
+        data1sorted=propertyUse(indices,i)';
+    else
+        data1sorted=propertyUse(indices);
+    end
 %     if size(data1sorted,1)>=size(data1sorted,2)
 %         data1sorted=data1sorted';
 %     end

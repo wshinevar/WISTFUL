@@ -26,7 +26,7 @@ constraints= mgnum>=0.86&isPeridotite';%Let's look at peridotites that have mgnu
 % mgnumBest=0.9133, mgnumErr=0.0083
 
 [densityBest, densityErr] = fitPropertyClosestX(Pwant, Temp,Temp_err,t,p,[Tplot(1) Tplot(end)],rockDensity,foundIndices, errorAllSorted);
-%densityBest=3.3810e+03, densityErr=81.1463
+%densityBest=3.3059e+03, densityErr=14.9922
 
 %% This plots the results of our search
 figure(1); close; figure(1);
