@@ -1,7 +1,7 @@
 ## WISTFUL (Whole-rock Interpretative Seismic Toolbox for Ultramafic Lithologies)
 coded by William Shinevar
 
-Last updated 11/2021
+Last updated 12/2021
 
 Hello and thanks for downloading WISTFUL!
 
