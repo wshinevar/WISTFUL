@@ -22,13 +22,22 @@ function [meanProperty, stdProperty, averagePropertyRange, stdPropertyRange] = f
 %
 % foundIndices and errorAll are the outputs from numWithinError run.
 %
+%   OUTPUTS:
+%
 % meanProperty gives you a averaged property weighted by the distance to
-% the desired data point.
+% the desired temperature.
 %
 % stdProperty is the standard deviation of the property also weighted by
-% the distance to the desired data point.
+% the distance to the desired temperature.
 %
-% coded by William Shinevar, last updated 04/21
+% averagePropertyRange is the weighted mean property at each temperature
+% within the range.
+%
+% stdPropertyRange is the weighted standard deviation of the property at
+% each temperature within the range. 
+%
+%
+% coded by William Shinevar, last updated 12/21
 %% error check and fixing property
 if nargin ~=9
     error('Wrong number of input variables.')

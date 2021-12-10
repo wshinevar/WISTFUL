@@ -16,13 +16,15 @@ function [meanProperty, stdProperty] = fitPropertyNumWithin(Pfind, Tfind,t,p,Tpl
 % 
 % foundIndices and errorAll are the outputs from numWithinError run.
 %
+% OUTPUTS:
+%
 % meanProperty gives you a averaged property weighted by the distance to
 % the desired data point. 
 % 
 % stdProperty is the standard deviation of the property also weighted by
 % the distance to the desired data point.
 %
-% coded by William Shinevar, last updated 04/21
+% coded by William Shinevar, last updated 12/21
 if nargin ~=8
     error('Wrong number of input variables.')
 end
@@ -47,7 +49,6 @@ if size(weights,1)==1
         stdProperty=std(propertyUse(foundIndices{tIndex2}),squeeze(weights(foundIndices{tIndex2})));
 else
     for j=1:size(foundIndices,2)
-        %I=find(abs(averageTemp-tPlot)==min(abs(averageTemp-tPlot)), 1 );
         meanProperty(j)=sum(propertyUse(foundIndices{tIndex2,j})'.*squeeze(weights(foundIndices{tIndex2,j},j)))./sum(squeeze(weights(foundIndices{tIndex2,j},j)));
         stdProperty(j)=std(propertyUse(foundIndices{tIndex2,j}),squeeze(weights(foundIndices{tIndex2,j},j)));
     end
