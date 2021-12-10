@@ -41,6 +41,10 @@ function [Tplot, numWithin, bestFitT, Terror, foundIndices, errorAll] = numWithi
 %   foundIndices is a cell for the WISTFUL sample indices at each
 %   investigated temperature. 
 %   
+%   errorAll is the error for all samples in percentage. If two seismic
+%   constraints were used, the errorAll is the absolute distance
+%   between the desired point and the sample (sqrt(error1^2+error2^2)). 
+%   
 %   last updated by William Shinevar 04/2021
 
 
