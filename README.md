@@ -8,7 +8,7 @@ Hello and thanks for downloading WISTFUL!
 This repository contains description and link to the WISTFUL database calculations, as well as GUIs and scripts to analyze this data for the use of geo-scientists.
 
 # Data Files
-In addition to this code, one should download the data files from this link: https://drive.google.com/file/d/1_eTLBl8XILSbv_XhhhkR5WFJ3JNScW_v/view?usp=sharing
+Two zipped data file sets exist. HGP4 contains all calculations assuming no equilibration temperature cutoff. HGP4_800 contains all calculations assuming an equilibration temperature cutoff of 800 degrees C.
 ## WISTFUL_densities_clean.mat
 This file contains the densities in kg/m^3 for all samples over the investigated range of pressure and temperature. 
 ## WISTFUL_parsed_modes_clean.mat
@@ -55,7 +55,7 @@ This MATLAB app allows plotting of parameters in the WISTFUL database over a ran
 ## WISTFUL_inversion
 This MATLAB app finds the best fitting compositions or parameters given pressure and seismic wave speed (one or more of Vp, Vs, and Vp/Vs). One can either fit by examining the X closest samples or by looking at the averages or distributions of data within error. To fit many seismic wave speed points, use the function fitSeismicWaveSpeeds.m.
 ## WISTFUL_profiles
-This MATLAB app allows the production of seismic wavespeed or density profiles and ranges for various geotherms and rock types. To use a loaded geotherm, you must load a .mat file with vector files for depth [km], pressure[Pa], and temperature [degree C] named as z, p, and t (NOTE: These variable names are case-sensitive). The depths should be increasing in value to plot well. 
+This MATLAB app allows the production of seismic wavespeed or density profiles and ranges for various geotherms and rock types. To use a loaded geotherm, you must load a .mat file with vector files for depth [km], pressure [Pa], and temperature [degree C] named as z, p, and t (NOTE: These variable names are case-sensitive). The depths should be increasing in value to plot well. 
 # Functions
 ## numWithinError.m
 This script calculates the best-fit temperature for a given seismic constraint using the number of samples within error. Benefit of this script over the GUI is that you can input a list of seismic wavespeeds for constraints.
