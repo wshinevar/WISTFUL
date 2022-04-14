@@ -19,14 +19,14 @@ VsFind=4.65;
 constraints= mgnum>=0.86&isPeridotite';%Let's look at peridotites that have mgnum>0.86
 [Tplot, averageError, Temp, Temp_err, foundIndices, errorAllSorted] =...
     findClosestX(Pwant, [300 1400], t, p, X, VsFind, vs,constraints,  VpFind, vp);
-%the result for this should be Temp=693.4897, Temp_err=44.8718
+%the result for this should be Temp=720.4128, Temp_err=53.8462
 %% Let's look at the best fitting Mg # (temperature insensitive parameter)
 % as well as the best fitting density (tempereature sensitive paramater).
 [mgnumBest, mgnumErr] = fitPropertyClosestX(Pwant, Temp,Temp_err,t,p,[300 1400],mgnum,foundIndices, errorAllSorted);
-% mgnumBest=0.9133, mgnumErr=0.0083
+% mgnumBest=0.9157, mgnumErr=0.0095
 
 [densityBest, densityErr] = fitPropertyClosestX(Pwant, Temp,Temp_err,t,p,[Tplot(1) Tplot(end)],rockDensity,foundIndices, errorAllSorted);
-%densityBest=3.3059e+03, densityErr=14.9922
+%densityBest=3.3014e+03, densityErr=16.7326
 
 %% This plots the results of our search
 figure(1); close; figure(1);

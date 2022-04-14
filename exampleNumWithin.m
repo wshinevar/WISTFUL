@@ -19,14 +19,14 @@ allowedError=0.5;
 constraints= mgnum>=0.86&isPeridotite';%Let's look at peridotites that have mgnum>0.86
     [tPlot, numWithin, Temp_numW, Temp_err_numW, foundIndices, errorAll] =...
         numWithinError(Pwant, [t(1) t(end)]-273.1, t, p, VsFind, allowedError, vs, constraints,VpFind, allowedError,vp);
-%the result for this should be Temp_numW =  731.9734, Temp_err_numW =   69.5046
+%the result for this should be Temp_numW =  734.9181, Temp_err_numW =   64.6072
 
 %% Let's look at the best fitting Mg # (temperature insensitive parameter)
 % as well as the best fitting density (tempereature sensitive paramater).
 [mgnumBest_numW, mgnumErr_numW] = fitPropertyNumWithin(Pwant, Temp_numW,t,p,tPlot,mgnum',foundIndices, errorAll);
-%result should be mgnumBest_numW =    0.9105,mgnumErr_numW =0.0111
+%result should be mgnumBest_numW =    0.9096,mgnumErr_numW =0.0110
 [densityBest_numW, densityErr_numW] = fitPropertyNumWithin(Pwant, Temp_numW,t,p,tPlot,rockDensity,foundIndices, errorAll);
-%result should be densityBest_numW =   3.3112e+03, densityErr_numW =   20.1013
+%result should be densityBest_numW =   3.3124e+03, densityErr_numW =   20.3522
 
 %% This plots the results of our search
 figure(1); close; figure(1);
