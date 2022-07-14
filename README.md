@@ -7,7 +7,7 @@ Hello and thanks for downloading WISTFUL!
 
 This repository contains description and link to the WISTFUL database calculations, as well as GUIs and scripts to analyze this data for the use of geo-scientists.
 
-The data files can be found at zenodo doi.
+The data files can be found at zenodo doi.org/10.5281/zenodo.5815695.
 
 # Data Files
 Two zipped data file sets exist. HGP4 contains all calculations assuming no equilibration temperature cutoff. HGP4_800 contains all calculations assuming an equilibration temperature cutoff of 800 degrees C.
