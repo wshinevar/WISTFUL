@@ -1,13 +1,13 @@
 ## WISTFUL (Whole-rock Interpretative Seismic Toolbox for Ultramafic Lithologies)
 coded by William Shinevar
 
-Last updated 4/2022
+Last updated 7/2022
 
 Hello and thanks for downloading WISTFUL!
 
 This repository contains description and link to the WISTFUL database calculations, as well as GUIs and scripts to analyze this data for the use of geo-scientists.
 
-For reviewers, you can find the data files for this product using this google drive link: https://drive.google.com/drive/folders/17S49tvhKBrXkn6PNawRdHsihIOp937Jz?usp=sharing
+The data files can be found at zenodo doi.
 
 # Data Files
 Two zipped data file sets exist. HGP4 contains all calculations assuming no equilibration temperature cutoff. HGP4_800 contains all calculations assuming an equilibration temperature cutoff of 800 degrees C.
