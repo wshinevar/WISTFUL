@@ -10,7 +10,7 @@ This repository contains description and link to the WISTFUL database calculatio
 The data files can be found at zenodo doi.org/10.5281/zenodo.5815695.
 
 # Data Files
-Two zipped data file sets exist. HGP4 contains all calculations assuming no equilibration temperature cutoff. HGP4_800 contains all calculations assuming an equilibration temperature cutoff of 800 degrees C.
+Two data sets exist. All files with the below names exactly contain the calculations contain all calculations assuming no equilibration temperature cutoff. Files with the '_800' after base file name contain all calculations assuming an equilibration temperature cutoff of 800 degrees C.
 ## WISTFUL_densities_clean.mat
 This file contains the densities in kg/m^3 for all samples over the investigated range of pressure and temperature. 
 ## WISTFUL_parsed_modes_clean.mat
